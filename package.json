@@ -1,0 +1,38 @@
+{
+    "name": "lexon",
+    "displayName": "Lexon",
+    "description": "Lexon language support for VS Code",
+    "version": "0.0.1",
+    "publisher": "sonemas",
+    "contributors": [
+		"Arjan van Eersel"
+    ],
+    "bugs": {
+		"url": "https://github.com/sonemas/vscode-lexon/issues"
+    },
+    "repository": {
+		"type": "git",
+		"url": "https://github.com/sonemas/vscode-lexon"
+	},
+    "icon": "images/lexon.png",
+    "engines": {
+        "vscode": "^1.41.0"
+    },
+    "categories": [
+        "Programming Languages",
+        "Snippets"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "lexon",
+            "aliases": ["Lexon", "lexon"],
+            "extensions": [".lex",".lexon",".lxn"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "lexon",
+            "scopeName": "source.lexon",
+            "path": "./syntaxes/lexon.tmLanguage.json"
+        }]
+    }
+}

@@ -1,0 +1,87 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Lexon",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#comment-line"
+		},
+		{
+			"include": "#operator"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.lexon",
+					"match": "(?i)(?:terms|contracts|may|pays|pay|appoints|into|to)\\b"
+				},
+				{
+					"name": "keyword.control.lexon",
+					"match": "(?i)(?:lexon|lex|clause)\\b[^\n]*"
+				}
+			]
+		},
+		"comment-line": {
+            "match": "(?i)comment[^\n]*",
+            "name": "comment.line.lexon"
+		},
+		"operator": {
+            "patterns": [
+                {
+                    "include": "#operator-logic"
+                },
+                {
+                    "include": "#operator-arithmetic"
+				},
+				{
+                    "include": "#operator-assignment"
+				},
+				{
+                    "include": "#variable"
+				}
+            ]
+        },
+        "operator-logic": {
+            "match": "(?i)\\b(less|greater|equal|le|gt|or)\\b",
+            "name": "keyword.operator.logic.lexon"
+		},
+		"operator-arithmetic": {
+            "match": "(?i)\\b(add|added|subtract|subtracted|multiply|multiplied|times|divide|divided)\\b",
+            "name": "keyword.operator.arithmetic.lexon"
+		},
+		"operator-assignment": {
+            "match": "(?i)\\b(is|be|certified)\\b",
+            "name": "keyword.operator.assignment.lexon"
+		},
+		"variable": {
+			"patterns": [
+				{
+					"include": "#variable-def"
+				},
+				{
+					"include": "#variable-def2"
+				},
+				{
+					"include": "#variable-type"
+				}
+			]
+		},
+		"variable-def": {
+			"match": "(?i)\\s*[a-z_']+\\s*:",
+			"name": "storage.type.variable.lexon"
+		},
+		"variable-def2": {
+			"match": "(?=\"|'?)([A-Za-z_]+)(?=\"|'?\\sis)",
+			"name": "storage.type.variable.lexon"
+		},
+		"variable-type": {
+			"match": "(?i)(?:amount|person|key|time|data|asset|text)\\b",
+			"name": "support.type.primitive.lexon"
+		},
+	},
+	"scopeName": "source.lexon"
+}
